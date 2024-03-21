@@ -1,26 +1,18 @@
 const express = require('express')
+const {creazaProduse, iaToataMarfa, iaUnSingurProdus, stergeMarfa, updateazaProdus} = require('../controllers/marfaController')
+
 
 const router = express.Router()
 
-router.get('/', (req, res) =>{
-    res.json({mssg: 'Afiseaza toata marfa'})
-})
+router.get('/', iaToataMarfa)
 
-router.get('/:id', (req, res) =>{
-    res.json({mssg: 'Afiseaza una singura'})
-})
+router.get('/:id', iaUnSingurProdus)
 
-router.post('/', (req, res)=>{
-    res.json({mssg: 'Afiseaza'})
-})
+router.post('/', creazaProduse)
 
-router.delete('/:id',(req,res)=>{
-    res.json({mssg: 'Sterge marfa'})
-})
+router.delete('/:id', stergeMarfa)
 
-router.patch('/:id', (req, res)=>{
-    res.json({mssg: 'Editeaza marfa'})
-})
+router.patch('/:id', updateazaProdus)
 
 
 module.exports = router
